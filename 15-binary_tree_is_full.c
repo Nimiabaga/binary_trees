@@ -17,7 +17,7 @@ int binary_tree_is_full(const binary_tree_t *tree)
 			(tree->left != NULL && tree->right == NULL))
 		return (0);
 
-	/* Recursively check the subtrees */
+	/* If the current node has zero or two children, check the subtrees */
 	return (binary_tree_is_full(tree->left) && binary_tree_is_full(tree->right));
 }
 
