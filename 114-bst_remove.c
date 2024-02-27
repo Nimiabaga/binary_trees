@@ -1,37 +1,40 @@
 #include "binary_trees.h"
 
+bst_t *sort_node(bst_t *root, int value);
+
+
 /**
- * find_node - Finds a node with a specific value in a Binary Search Tree (BST)
+ * sort_node - Finds a node with a specific value in a Binary Search Tree (BST)
  * @root: Pointer to the root node
  * @value: Value to search for in the tree
  *
  * Return: Pointer to node with the specified value, NULL otherwise
  */
-bst_t *find_node(bst_t *root, int value)
+bst_t *sort_node(bst_t *root, int value)
 {
 	if (!root || root->n == value)
 		return (root);
 
 	if (value < root->n)
-		return (find_node(root->left, value));
+		return (sort_node(root->left, value));
 	else
-		return (find_node(root->right, value));
+		return (sort_node(root->right, value));
 }
 
 /**
- * find_successor - Finds the in-order successor of a node in a BST
+ * find_inorder_inheritor - Finds the in-order inheritor of a node in a BST
  * @node: Pointer to the node
  *
- * Return: Pointer to the in-order successor
+ * Return: Pointer to the in-order inheritor
  */
-bst_t *find_successor(bst_t *node)
+bst_t *find_inorder_inheritor(bst_t *node)
 {
-	bst_t *successor = node->right;
+	bst_t *inheritor = node->right;
 
-	while (successor->left != NULL)
-		successor = successor->left;
+	while (inheritor->left != NULL)
+		inheritor = inheritor->left;
 
-	return (successor);
+	return (inheritor);
 }
 
 /**
@@ -77,10 +80,10 @@ bst_t *remove_node(bst_t *root, bst_t *node_to_remove)
 	}
 	else
 	{
-		/* Find the in-order successor */
-		new_node = find_successor(node_to_remove);
+		/* Find the in-order inheritor */
+		new_node = find_inorder_inheritor(node_to_remove);
 
-		/* Replace node with its in-order successor */
+		/* Replace node with its in-order inheritor */
 		if (new_node->right != NULL)
 			new_node->right->parent = new_node->parent;
 
@@ -91,7 +94,7 @@ bst_t *remove_node(bst_t *root, bst_t *node_to_remove)
 		else
 			new_node->parent->right = new_node->right;
 
-		/* Copy value from the in-order successor to the original node */
+		/* Copy value from the in-order inheritor to the original node */
 		node_to_remove->n = new_node->n;
 
 		free(new_node);
@@ -115,7 +118,7 @@ bst_t *bst_remove(bst_t *root, int value)
 		return (NULL);
 
 	/* Find the node to be removed */
-	node_to_remove = find_node(root, value);
+	node_to_remove = sort_node(root, value);
 
 	if (!node_to_remove)
 		return (root);
