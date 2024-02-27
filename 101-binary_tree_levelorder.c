@@ -25,12 +25,12 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 
 
 /**
- * tree_level - Recursive function to execute func on nodes at a specific level
- * @tree: Pointer to the root of the tree
+ * tree_level - Func level of a binary tree
+ * @tree: Ptr to the root of the tree
  * @a: Tree level
- * @func: Pointer to the function to execute
+ * @func: Executed func
  */
-void tree_level(const binary_tree_t *tree, int a, void (*func)(int))
+void tree_level(const binary_tree_t *tree, size_t a, void (*func)(int))
 {
 	if (!tree)
 		return;
@@ -42,7 +42,6 @@ void tree_level(const binary_tree_t *tree, int a, void (*func)(int))
 		tree_level(tree->right, a - 1, func);
 	}
 }
-
 /**
  * binary_tree_height - Measures the height of a binary tree
  * @tree: Pointer to the root node of the tree to measure the height
