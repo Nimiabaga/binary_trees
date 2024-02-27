@@ -3,20 +3,39 @@
 #include <stdio.h>
 
 /**
- * binary_tree_levelorder - Goes through a binary tree using level-order traversal
- * @tree: Pointer to the root node of the tree to traverse
- * @func: Pointer to a function to call for each
- *       node (the value in the node is passed as a parameter to this function)
+ * binary_tree_levelorder - Goes through a binary tree via level-order
+ * @tree: Ptr to the root node of the tree to traverse
+ * @func: Ptr to a func to call for each node
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
 	if (!tree || !func)
 		return;
 
-	int height = binary_tree_height(tree);
-	for (int i = 1; i <= height; i++)
-		tree_level(tree, i, func);
+	binary_tree_t **queue = malloc(sizeof(binary_tree_t *) * 1024);  // Assuming a maximum of 1024 nodes
+	if (!queue)
+		return;
+
+	int front = 0, rear = 0;
+	binary_tree_t *current;
+
+	queue[rear++] = (binary_tree_t *)tree;
+
+	while (front < rear)
+	{
+		current = queue[front++];
+		func(current->n);
+
+		if (current->left)
+			queue[rear++] = current->left;
+
+		if (current->right)
+			queue[rear++] = current->right;
+	}
+
+	free(queue);
 }
+
 
 /**
  * tree_level - Recursive function to execute func on nodes at a specific level
