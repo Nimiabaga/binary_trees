@@ -12,7 +12,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	return is_complete(tree, 0, binary_tree_size(tree));
+	return (is_complete(tree, 0, binary_tree_size(tree)));
 }
 
 /**
@@ -44,15 +44,15 @@ int is_complete(const binary_tree_t *tree, int index, int size)
  */
 size_t binary_tree_size(const binary_tree_t *tree)
 {
-        size_t size = 0;
+	size_t size = 0;
 
-        if (tree == NULL)
-                return (0);
+	if (tree == NULL)
+		return (0);
 
-        size += binary_tree_size(tree->left);
-        size += binary_tree_size(tree->right);
+	size += binary_tree_size(tree->left);
+	size += binary_tree_size(tree->right);
 
-        return (size + 1);
+	return (size + 1);
 }
 
 
