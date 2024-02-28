@@ -72,6 +72,7 @@ int validate_avl_tree(const binary_tree_t *tree, int lo, int hi);
 avl_t *avl_insert(avl_t **tree, int value);
 avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
 		avl_t **n_node_ptr, int v_node);
+avl_t *array_to_avl(int *array, size_t size);
 
 
 
