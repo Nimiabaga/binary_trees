@@ -70,8 +70,8 @@ bst_t *remove_node(bst_t *root, bst_t *node_to_remove);
 int binary_tree_is_avl(const binary_tree_t *tree);
 int validate_avl_tree(const binary_tree_t *tree, int lo, int hi);
 avl_t *avl_insert(avl_t **tree, int value);
-avl_t *custom_avl_insert_recursive(avl_t **node, avl_t *parent,
-        avl_t **new_node, int value);
+avl_t *custom_avl_insert_recursive(avl_t **current_node, avl_t *parent_node,
+        avl_t **new_node_ptr, int insert_value);
 
 
 
