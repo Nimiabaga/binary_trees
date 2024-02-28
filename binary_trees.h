@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <limits.h>
 
+
 /**
  * struct binary_tree_s - Binary tree node
  *
@@ -68,6 +69,9 @@ bst_t *find_inorder_inheritor(bst_t *node);
 bst_t *remove_node(bst_t *root, bst_t *node_to_remove);
 int binary_tree_is_avl(const binary_tree_t *tree);
 int validate_avl_tree(const binary_tree_t *tree, int lo, int hi);
+avl_t *avl_insert(avl_t **tree, int value);
+avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
+		avl_t **new, int value);
 
 
 
