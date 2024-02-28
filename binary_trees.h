@@ -67,6 +67,7 @@ bst_t *sort_node(bst_t *root, int value);
 bst_t *find_inorder_inheritor(bst_t *node);
 bst_t *remove_node(bst_t *root, bst_t *node_to_remove);
 int binary_tree_is_avl(const binary_tree_t *tree);
+int validate_avl_tree(const binary_tree_t *tree, int lo, int hi);
 
 
 
