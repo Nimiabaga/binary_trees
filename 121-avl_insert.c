@@ -1,10 +1,7 @@
 #include "binary_trees.h"
 
-avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
-		avl_t **n_node_ptr, int v_node);
-avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
-		avl_t **n_node_ptr, int v_node);
-
+avl_t *avl_insert_rec(avl_t **c_node,
+		avl_t *p_node, avl_t **n_node_ptr, int v_node);
 
 /**
  * avl_insert_rec - Recursively inserts a value into an AVL tree.
@@ -15,10 +12,11 @@ avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
  *
  * Return: A pointer to the new root after insertion, or NULL on failure.
  */
-avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
-		avl_t **n_node_ptr, int v_node)
-	avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
-			avl_t **n_node_ptr, int v_node);
+avl_t *avl_insert_rec(avl_t **c_node,
+		avl_t *p_node, avl_t **n_node_ptr, int v_node)
+	avl_t *avl_insert_rec(avl_t **c_node,
+			avl_t *p_node, avl_t **n_node_ptr, int v_node);
+
 {
 	int b_factor;
 
@@ -66,7 +64,6 @@ avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
 	return (*c_node);
 }
 
-
 /**
  * avl_insert - Inserts a value into an AVL tree.
  * @tree: A double pointer to the root node of the AVL tree to insert into.
@@ -76,7 +73,7 @@ avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
  */
 avl_t *avl_insert(avl_t **tree, int value)
 {
-	avl_t *new = NULL;
+	avl_t *new_node = NULL;
 
 	if (tree == NULL)
 		return (NULL);
@@ -85,6 +82,7 @@ avl_t *avl_insert(avl_t **tree, int value)
 		*tree = binary_tree_node(NULL, value);
 		return (*tree);
 	}
-	avl_insert_recursive(tree, *tree, &new, value);
-	return (new);
+	avl_insert_rec(tree, *tree, &new_node, value);
+	return (new_node);
 }
+
