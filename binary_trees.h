@@ -90,6 +90,7 @@ int is_max_heap_recursive(const binary_tree_t *node);
 void _sequence(heap_t *tree, heap_t **n, size_t h);
 size_t size_h(const binary_tree_t *tree);
 size_t tree_h(const heap_t *tree);
+int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
 
 
