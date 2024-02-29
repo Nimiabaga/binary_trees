@@ -64,7 +64,10 @@ int binary_tree_is_bst(const binary_tree_t *tree);
 bst_t *bst_insert(bst_t **tree, int value);
 bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
+int heap_extract(heap_t **root);
 bst_t *bst_remove(bst_t *root, int value);
+void _stack(heap_t *root);
+
 bst_t *sort_node(bst_t *root, int value);
 bst_t *find_inorder_inheritor(bst_t *node);
 bst_t *remove_node(bst_t *root, bst_t *node_to_remove);
@@ -84,6 +87,10 @@ void build_avl_recursive(avl_t **node, int *array, size_t size, int mode);
 int binary_tree_is_heap(const binary_tree_t *tree);
 heap_t *heap_insert(heap_t **root, int value);
 int is_max_heap_recursive(const binary_tree_t *node);
+void _sequence(heap_t *tree, heap_t **n, size_t h);
+size_t size_h(const binary_tree_t *tree);
+size_t tree_h(const heap_t *tree);
+
 
 
 
