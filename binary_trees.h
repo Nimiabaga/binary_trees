@@ -74,11 +74,9 @@ avl_t *avl_insert_rec(avl_t **c_node, avl_t *p_node,
 		avl_t **n_node_ptr, int v_node);
 avl_t *array_to_avl(int *array, size_t size);
 avl_t *avl_remove(avl_t *root, int value);
-void balance_avl(avl_t **avl_node);
-int get_successor(bst_t *node);
-int remove_node_type(bst_t *bst_root);
-
-
+void bal(avl_t **avl_node);
+int successor(bst_t *n);
+int rm_type(bst_t *r);
 
 
 
