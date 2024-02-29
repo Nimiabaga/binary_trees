@@ -80,6 +80,7 @@ int rm_type(bst_t *r);
 bst_t *bst_remove(bst_t *root, int value);
 avl_t *sorted_array_to_avl(int *array, size_t size);
 void build_avl_recursive(avl_t **node, int *array, size_t size, int mode);
+int binary_tree_is_heap(const binary_tree_t *tree);
 
 
 
